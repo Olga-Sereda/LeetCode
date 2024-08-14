@@ -2,12 +2,13 @@
  * @param {number[]} nums
  * @return {boolean}
  */
-var containsDuplicate = function(nums) {
-   for (let i = 0; i < nums.length - 1; i++) {
-       for (let j = i+1; j < nums.length; j++) {
-           if (nums[i] == nums[j]) {
-               return true;
-           }
-       }
-   } return false
+var containsDuplicate = function (nums) {
+  let hashMap = {};
+  for (let i = 0; i < nums.length; i++) {
+    if (hashMap[nums[i]]) {
+      return true;
+    }
+    hashMap[nums[i]] = true;
+  }
+  return false;
 };
